@@ -5,26 +5,41 @@ import { DocKind } from '@/types';
 import { useApp } from '@/context/AppContext';
 import { TranslationKey } from '@/lib/i18n';
 import { cn } from '@/lib/utils';
+import { MOCK_SCHOLARSHIPS } from '@/data/mockScholarships';
 import {
   FileText,
   Camera,
   CheckCircle2,
   ShieldCheck,
   ChevronRight,
+  BookOpen,
 } from 'lucide-react';
 
 interface DocChecklistProps {
   selectedKind: DocKind;
   onSelectKind: (kind: DocKind) => void;
   completedKinds: Set<DocKind>;
+  currentSchemeId?: string;
+  onSchemeChange?: (schemeId: string) => void;
+  requiredKinds?: DocKind[];
 }
 
 export function DocChecklist({
   selectedKind,
   onSelectKind,
   completedKinds,
+  currentSchemeId,
+  onSchemeChange,
+  requiredKinds,
 }: DocChecklistProps) {
-  const { t } = useApp();
+  const { t, state } = useApp();
+  const lang = state.language;
+
+  const currentScheme = currentSchemeId
+    ? MOCK_SCHOLARSHIPS.find((s) => s.id === currentSchemeId)
+    : null;
+
+  const effectiveRequiredKinds = requiredKinds || currentScheme?.documents || [];
 
   const docItems: {
     kind: DocKind;
@@ -77,14 +92,54 @@ export function DocChecklist({
     },
   ];
 
+  const requiredCount = effectiveRequiredKinds.length;
+  const completedRequiredCount = effectiveRequiredKinds.filter((k) =>
+    completedKinds.has(k)
+  ).length;
+
   return (
     <div className="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 space-y-4 shadow-xs">
-      <div className="border-b border-slate-100 pb-3">
-        <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500">
-          {t('docRulesTitle')}
-        </h3>
-        <p className="text-xs text-slate-500 mt-0.5">
-          Select a category to optimize or test
+      <div className="border-b border-slate-100 pb-3 space-y-2">
+        <div className="flex items-center justify-between">
+          <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500">
+            {t('docRulesTitle')}
+          </h3>
+          {requiredCount > 0 && (
+            <span className="text-[11px] font-bold font-mono px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200">
+              {completedRequiredCount}/{requiredCount} Verified
+            </span>
+          )}
+        </div>
+
+        {/* Scheme Checklist Selector */}
+        {onSchemeChange && (
+          <div className="space-y-1">
+            <label
+              htmlFor="scheme-checklist-select"
+              className="text-[11px] font-semibold text-slate-600 flex items-center gap-1"
+            >
+              <BookOpen className="w-3 h-3 text-indigo-600" />
+              <span>Target Scheme Checklist:</span>
+            </label>
+            <select
+              id="scheme-checklist-select"
+              value={currentSchemeId || ''}
+              onChange={(e) => onSchemeChange(e.target.value)}
+              className="w-full text-xs font-semibold rounded-lg border border-slate-300 bg-slate-50 py-1.5 px-2.5 text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-600 truncate"
+            >
+              {MOCK_SCHOLARSHIPS.map((scheme) => (
+                <option key={scheme.id} value={scheme.id}>
+                  {scheme.name[lang] || scheme.name.en}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
+
+        <p className="text-xs text-slate-500">
+          {currentScheme
+            ? `Required documents for ${currentScheme.name[lang] || currentScheme.name.en}`
+            : 'Select a category to optimize or test with AI OCR'}
         </p>
       </div>
 
@@ -92,6 +147,7 @@ export function DocChecklist({
         {docItems.map((item) => {
           const isSelected = selectedKind === item.kind;
           const isDone = completedKinds.has(item.kind);
+          const isRequiredForScheme = effectiveRequiredKinds.includes(item.kind);
           const Icon = item.icon;
 
           return (
@@ -125,9 +181,16 @@ export function DocChecklist({
                 </div>
 
                 <div>
-                  <span className="text-xs font-bold text-slate-900 block leading-tight">
-                    {t(item.titleKey)}
-                  </span>
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-xs font-bold text-slate-900 block leading-tight">
+                      {t(item.titleKey)}
+                    </span>
+                    {isRequiredForScheme && (
+                      <span className="text-[9px] font-mono font-bold px-1.5 py-0.2 rounded bg-amber-100 text-amber-800 border border-amber-200">
+                        Mandatory
+                      </span>
+                    )}
+                  </div>
                   <span className="text-[10px] text-slate-500 font-mono">
                     {item.format} • {item.rule}
                   </span>

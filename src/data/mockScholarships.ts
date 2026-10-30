@@ -23,6 +23,37 @@ export const MOCK_SCHOLARSHIPS: Scheme[] = [
     benefitPerYear: 50000,
     deadlineInDays: 1,
     documents: ['aadhaar', 'income', 'marksheet', 'bank', 'photo'],
+    officialUrl: 'https://www.aicte-india.org/schemes/students-development-schemes/Pragati',
+    portalName: {
+      en: 'National Scholarship Portal & AICTE Portal',
+      hi: 'राष्ट्रीय छात्रवृत्ति पोर्टल एवं एआईसीटीई पोर्टल',
+    },
+    applicationMode: {
+      en: 'Online submission via scholarships.gov.in with Institute Nodal Officer (INO) verification',
+      hi: 'scholarships.gov.in के माध्यम से संस्थान नोडल अधिकारी (INO) सत्यापन सहित ऑनलाइन आवेदन',
+    },
+    verifiedFaqs: [
+      {
+        question: {
+          en: 'Can two girl children from the same family apply?',
+          hi: 'क्या एक ही परिवार की दो छात्राएं आवेदन कर सकती हैं?',
+        },
+        answer: {
+          en: 'Yes. Up to two girls per family are eligible under the official AICTE Pragati guidelines.',
+          hi: 'हाँ। आधिकारिक दिशानिर्देशों के अनुसार प्रति परिवार अधिकतम दो बेटियां पात्र हैं।',
+        },
+      },
+      {
+        question: {
+          en: 'Are lateral entry students eligible?',
+          hi: 'क्या लेटरल एंट्री (द्वितीय वर्ष) के छात्र पात्र हैं?',
+        },
+        answer: {
+          en: 'Yes, girls admitted through lateral entry into 2nd year of degree/diploma programs are also eligible.',
+          hi: 'हाँ, डिग्री या डिप्लोमा के द्वितीय वर्ष में लेटरल एंट्री से प्रवेश लेने वाली छात्राएं भी पात्र हैं।',
+        },
+      },
+    ],
   },
   {
     id: 'csss',
@@ -52,6 +83,27 @@ export const MOCK_SCHOLARSHIPS: Scheme[] = [
     benefitPerYear: 20000,
     deadlineInDays: 16,
     documents: ['aadhaar', 'income', 'marksheet', 'bank'],
+    officialUrl: 'https://www.education.gov.in/higher_education/scholarships',
+    portalName: {
+      en: 'National Scholarship Portal (NSP)',
+      hi: 'राष्ट्रीय छात्रवृत्ति पोर्टल (NSP)',
+    },
+    applicationMode: {
+      en: 'Online application through scholarships.gov.in using Aadhaar e-KYC',
+      hi: 'scholarships.gov.in के माध्यम से आधार ई-केवाईसी द्वारा ऑनलाइन आवेदन',
+    },
+    verifiedFaqs: [
+      {
+        question: {
+          en: 'What is the top 20 percentile requirement?',
+          hi: 'शीर्ष 20 प्रतिशतक की शर्त क्या है?',
+        },
+        answer: {
+          en: 'State school examination boards publish annual cut-off marks for science, commerce, and humanities streams representing the top 20% ranking.',
+          hi: 'राज्य स्कूल परीक्षा बोर्ड विज्ञान, वाणिज्य और कला वर्ग के लिए शीर्ष 20% रैंकिंग की वार्षिक कट-ऑफ सूची जारी करते हैं।',
+        },
+      },
+    ],
   },
   {
     id: 'pms_minority',
@@ -82,6 +134,15 @@ export const MOCK_SCHOLARSHIPS: Scheme[] = [
     benefitPerYear: 12000,
     deadlineInDays: 1,
     documents: ['aadhaar', 'income', 'marksheet', 'bank'],
+    officialUrl: 'https://www.minorityaffairs.gov.in',
+    portalName: {
+      en: 'National Scholarship Portal (MoMA Scheme)',
+      hi: 'राष्ट्रीय छात्रवृत्ति पोर्टल (अल्पसंख्यक कार्य मंत्रालय)',
+    },
+    applicationMode: {
+      en: 'Online via scholarships.gov.in with self-declaration minority certificate',
+      hi: 'scholarships.gov.in पर स्व-घोषणा अल्पसंख्यक प्रमाण पत्र सहित ऑनलाइन',
+    },
   },
   {
     id: 'mcm',
@@ -112,6 +173,15 @@ export const MOCK_SCHOLARSHIPS: Scheme[] = [
     benefitPerYear: 30000,
     deadlineInDays: 16,
     documents: ['aadhaar', 'income', 'marksheet', 'bank'],
+    officialUrl: 'https://www.minorityaffairs.gov.in',
+    portalName: {
+      en: 'National Scholarship Portal (MoMA Professional)',
+      hi: 'राष्ट्रीय छात्रवृत्ति पोर्टल (MoMA व्यावसायिक)',
+    },
+    applicationMode: {
+      en: 'Online application with institute verification of technical admission quota',
+      hi: 'तकनीकी प्रवेश कोटे के संस्थान सत्यापन सहित ऑनलाइन आवेदन',
+    },
   },
   {
     id: 'pms_sc',
@@ -134,6 +204,15 @@ export const MOCK_SCHOLARSHIPS: Scheme[] = [
     benefitPerYear: 25000,
     deadlineInDays: 31,
     documents: ['aadhaar', 'caste', 'income', 'marksheet', 'bank'],
+    officialUrl: 'https://socialjustice.gov.in',
+    portalName: {
+      en: 'NSP & State Social Welfare Portals',
+      hi: 'एनएसपी एवं राज्य समाज कल्याण पोर्टल',
+    },
+    applicationMode: {
+      en: 'Online submission; fee component credited directly to institution and maintenance to student Aadhaar account',
+      hi: 'ऑनलाइन आवेदन; ट्यूशन शुल्क सीधे कॉलेज को और रखरखाव भत्ता छात्र के खाते में',
+    },
   },
   {
     id: 'yasasvi',
@@ -156,6 +235,15 @@ export const MOCK_SCHOLARSHIPS: Scheme[] = [
     benefitPerYear: 18000,
     deadlineInDays: 31,
     documents: ['aadhaar', 'caste', 'income', 'marksheet', 'bank'],
+    officialUrl: 'https://socialjustice.gov.in',
+    portalName: {
+      en: 'National Scholarship Portal (PM YASASVI)',
+      hi: 'राष्ट्रीय छात्रवृत्ति पोर्टल (पीएम यशस्वी)',
+    },
+    applicationMode: {
+      en: 'Online via scholarships.gov.in with valid OBC / Non-Creamy Layer certification',
+      hi: 'वैध ओबीसी / नॉन-क्रीमी लेयर प्रमाण पत्र के साथ ऑनलाइन आवेदन',
+    },
   },
   {
     id: 'pms_st',
@@ -178,6 +266,15 @@ export const MOCK_SCHOLARSHIPS: Scheme[] = [
     benefitPerYear: 22000,
     deadlineInDays: 31,
     documents: ['aadhaar', 'caste', 'income', 'marksheet', 'bank'],
+    officialUrl: 'https://tribal.nic.in',
+    portalName: {
+      en: 'National Scholarship Portal & Ministry of Tribal Affairs',
+      hi: 'राष्ट्रीय छात्रवृत्ति पोर्टल एवं जनजातीय कार्य मंत्रालय',
+    },
+    applicationMode: {
+      en: 'Online through NSP with tribal domicile and caste verification by District Officer',
+      hi: 'जिला अधिकारी द्वारा जनजातीय मूल निवास एवं जाति सत्यापन के साथ ऑनलाइन',
+    },
   },
   {
     id: 'topclass_sc',
@@ -207,6 +304,15 @@ export const MOCK_SCHOLARSHIPS: Scheme[] = [
     benefitPerYear: 200000,
     deadlineInDays: 45,
     documents: ['aadhaar', 'caste', 'income', 'marksheet', 'bank'],
+    officialUrl: 'https://socialjustice.gov.in',
+    portalName: {
+      en: 'National Scholarship Portal (Top Class)',
+      hi: 'राष्ट्रीय छात्रवृत्ति पोर्टल (शीर्ष श्रेणी)',
+    },
+    applicationMode: {
+      en: 'Online application with institute verification of premier admission list',
+      hi: 'शीर्ष संस्थान की प्रवेश सूची के सत्यापन के साथ ऑनलाइन आवेदन',
+    },
   },
   {
     id: 'saksham',
@@ -230,6 +336,15 @@ export const MOCK_SCHOLARSHIPS: Scheme[] = [
     benefitPerYear: 50000,
     deadlineInDays: 1,
     documents: ['aadhaar', 'income', 'marksheet', 'bank', 'photo'],
+    officialUrl: 'https://www.aicte-india.org/schemes/students-development-schemes/Saksham',
+    portalName: {
+      en: 'AICTE Portal & NSP',
+      hi: 'एआईसीटीई पोर्टल एवं एनएसपी',
+    },
+    applicationMode: {
+      en: 'Online submission with UDID (Unique Disability ID) validation',
+      hi: 'यूडीआईडी (विशिष्ट दिव्यांगता पहचान पत्र) सत्यापन के साथ ऑनलाइन आवेदन',
+    },
   },
   {
     id: 'nmmss',
@@ -259,6 +374,15 @@ export const MOCK_SCHOLARSHIPS: Scheme[] = [
     benefitPerYear: 12000,
     deadlineInDays: 60,
     documents: ['aadhaar', 'income', 'marksheet', 'bank'],
+    officialUrl: 'https://dsel.education.gov.in/nmmss',
+    portalName: {
+      en: 'National Scholarship Portal (DSEL Scheme)',
+      hi: 'राष्ट्रीय छात्रवृत्ति पोर्टल (स्कूल शिक्षा विभाग)',
+    },
+    applicationMode: {
+      en: 'Online application linked with State NMMSS exam roll number',
+      hi: 'राज्य एनएमएमएसएस परीक्षा रोल नंबर के साथ ऑनलाइन आवेदन',
+    },
   },
   {
     id: 'ishan',
@@ -290,6 +414,15 @@ export const MOCK_SCHOLARSHIPS: Scheme[] = [
     benefitPerYear: 54000,
     deadlineInDays: 75,
     documents: ['aadhaar', 'income', 'marksheet', 'bank'],
+    officialUrl: 'https://www.ugc.gov.in',
+    portalName: {
+      en: 'National Scholarship Portal (UGC Ishan Uday)',
+      hi: 'राष्ट्रीय छात्रवृत्ति पोर्टल (यूजीसी ईशान उदय)',
+    },
+    applicationMode: {
+      en: 'Online through NSP with Permanent Resident Certificate (PRC) of NE state',
+      hi: 'उत्तर-पूर्वी राज्य के स्थायी निवासी प्रमाण पत्र (PRC) के साथ ऑनलाइन आवेदन',
+    },
   },
   {
     id: 'jk_special',
@@ -312,5 +445,14 @@ export const MOCK_SCHOLARSHIPS: Scheme[] = [
     benefitPerYear: 30000,
     deadlineInDays: 90,
     documents: ['aadhaar', 'income', 'marksheet', 'bank'],
+    officialUrl: 'https://www.aicte-jk-scholarship-gov.in',
+    portalName: {
+      en: 'AICTE PM-USPY Portal & NSP',
+      hi: 'एआईसीटीई पीएम-यूएसपीवाई पोर्टल एवं एनएसपी',
+    },
+    applicationMode: {
+      en: 'Online counseling and admission allocation via AICTE portal',
+      hi: 'एआईसीटीई पोर्टल के माध्यम से ऑनलाइन काउंसलिंग एवं प्रवेश आवंटन',
+    },
   },
 ];

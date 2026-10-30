@@ -8,6 +8,7 @@ import { evaluate } from '@/lib/eligibility';
 import { Scheme } from '@/types';
 import { SchemeCard } from './SchemeCard';
 import { FastApplySheet } from './FastApplySheet';
+import { NaturalLanguageSearchBar } from './NaturalLanguageSearchBar';
 import { ChevronDown, ChevronUp, ShieldX, Sparkles, Filter } from 'lucide-react';
 import { Badge } from '@/components/ui/Badge';
 
@@ -53,6 +54,9 @@ export function ResultsPanel() {
 
   return (
     <div className="space-y-6">
+      {/* Natural Language AI Search Bar */}
+      <NaturalLanguageSearchBar />
+
       {/* Results Header with aria-live */}
       <div className="flex flex-wrap items-center justify-between gap-3 bg-white p-4 rounded-2xl border border-slate-200">
         <div className="flex items-center gap-2" aria-live="polite">

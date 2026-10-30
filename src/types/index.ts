@@ -13,6 +13,11 @@ export interface SoftCriteria {
   note: BilingualText;
 }
 
+export interface VerifiedFaq {
+  question: BilingualText;
+  answer: BilingualText;
+}
+
 export interface Scheme {
   id: string;
   name: BilingualText;
@@ -29,6 +34,10 @@ export interface Scheme {
   benefitPerYear: number;
   deadlineInDays: number;
   documents: DocKind[];
+  officialUrl: string;
+  portalName: BilingualText;
+  applicationMode: BilingualText;
+  verifiedFaqs?: VerifiedFaq[];
 }
 
 export interface StudentProfile {
@@ -48,10 +57,18 @@ export interface EligibilityReason {
   text: BilingualText;
 }
 
+export interface RequirementAuditItem {
+  id: string;
+  name: BilingualText;
+  status: 'satisfied' | 'unverified' | 'failed';
+  explanation: BilingualText;
+}
+
 export interface EligibilityResult {
   score: number;
   tier: 'eligible' | 'likely' | 'ineligible';
   reasons: EligibilityReason[];
+  auditItems?: RequirementAuditItem[];
 }
 
 export interface EventLogItem {
@@ -90,4 +107,33 @@ export interface Application {
   docRequestNote?: string;
   reminderSent?: boolean;
   events: EventLogItem[];
+}
+
+export interface CopilotSource {
+  title: string;
+  url: string;
+  schemeId?: string;
+}
+
+export interface CopilotMessage {
+  id: string;
+  role: 'user' | 'assistant' | 'system';
+  content: string;
+  sources?: CopilotSource[];
+  verifiedFacts?: string[];
+  unverifiedNotes?: string[];
+  suggestedFollowUps?: string[];
+  timestamp: number;
+}
+
+export interface ParsedQueryFilter {
+  state?: string;
+  level?: CourseLevel;
+  category?: Category;
+  isFemale?: boolean;
+  isMinority?: boolean;
+  hasDisability?: boolean;
+  annualIncome?: number;
+  keywords?: string[];
+  summaryNote?: string;
 }

@@ -4,6 +4,7 @@ import { AppProvider } from '@/context/AppContext';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { DemoGuide } from '@/components/layout/DemoGuide';
+import { ScholarshipCopilot } from '@/components/copilot/ScholarshipCopilot';
 
 export const metadata: Metadata = {
   title: 'Setu (NSP Direct) - Scholarship Portal Friction Fix',
@@ -26,6 +27,7 @@ export default function RootLayout({
           </main>
           <Footer />
           <DemoGuide />
+          <ScholarshipCopilot />
         </AppProvider>
       </body>
     </html>
